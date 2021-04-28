@@ -1,21 +1,34 @@
 NAME = phonebook
-CC = g++
-INC_DIR = includes/
-INCLUDES = -I$(INC_DIR)
-FILES = crappybook\
-		crappybook_utils
-FLAGS = -static #-Wall -Wextra -Werror 
 
-SRC_FILES = $(addsuffix .cpp, $(FILES))
+HEADER = crappybook.hpp\
+			contact.class.hpp
+
+SRC = crappybook.cpp\
+		crappybook_utils.cpp\
+		contact.class.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+CC = clang++ -std=c++98
+
+RM = rm -rf
+
+FLAGS = #-Wall -Wextra -Werror
+
 
 all: $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME) $(FLAGS)
 
-$(NAME): $(SRC_FILES)
-	$(CC) $(SRC_FILES) $(INCLUDES) -o $(NAME) $(FLAGS)
+%.o: %.cpp
+	$(CC) -c $< -o $@ $(FLAGS)
 
 clean:
-	rm -f $(NAME)
+	$(RM) $(OBJ)
 
-re: clean all
+fclean:	clean
+	@ rm -f $(NAME)
 
-.PHONY: all clean
+re:		fclean all
+
+.PHONY: all clean fclean re bonus

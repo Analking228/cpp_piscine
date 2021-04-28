@@ -1,4 +1,23 @@
-#include "../includes/crappybook.hpp"
+#include "crappybook.hpp"
+
+typedef std::string string;
+
+string	cut_string(const string str){
+
+	string	tmp;
+	int		i;
+
+	i = str.length();
+	tmp = str;
+	if (i > 10){
+		tmp = str.substr(0, 9);
+		tmp = tmp + ".";
+	}
+	else if (i < 10)
+		while (i++ <= 10)
+			tmp += " ";
+	return (tmp);
+}
 
 int	ft_strsrc(string s1, string s2, int n)
 {

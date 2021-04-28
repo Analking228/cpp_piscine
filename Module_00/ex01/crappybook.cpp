@@ -1,4 +1,7 @@
-#include "../includes/crappybook.hpp"
+#include "crappybook.hpp"
+#include "contact.class.hpp"
+
+// typedef std::string string;
 
 void	ft_welcome(void)
 {
@@ -25,18 +28,11 @@ int		ft_command(string command)
 	return (0);
 }
 
-int		ft_addcntct()
+int		ft_addcntct(Contact *field, int number)
 {
-	const int	ctncts_count = 8;
-	string		contacts[ctncts_count][255];
-	int			i;
-
-	i = 0;
-	std::cout << "Enter contact name: ";
-	while (contacts[i][0] == 0)
-		i++;
-	std::cin >> *(contacts[i]); 
-	std::cout << *(contacts[i]);
+	field->index = number;
+	field->fill_fields();
+	std::cout << field->print_search_fields() << std::endl;
 	return (0);
 }
 
@@ -47,8 +43,10 @@ int		ft_srccntct()
 
 int		main(void)
 {
-	string	command;
-	int		check;
+	Contact		instance[8];	
+	string		command;
+	int			check;
+	int			i;
 
 	ft_welcome();
 	while (1 < 2)
@@ -56,8 +54,11 @@ int		main(void)
 		std::cout << ">>";
 		std::cin >> command;
 		check = ft_command(command);
-		if (check == 1)
-			ft_addcntct();
+		if (check == 1){
+			while (instance[i].index != -1)
+				i++;
+			ft_addcntct(&instance[i], i);
+		}
 		else if (check == 2)
 			ft_srccntct();
 		else if (check == 3)
