@@ -3,8 +3,25 @@
 
 typedef std::string string;
 
-int			Contact::fill_fields(void){
+void		Contact::print_fields(void){
 
+	std::cout << "First name:      " << first_name << std::endl;
+	std::cout << "Last name:       " << last_name << std::endl;
+	std::cout << "Nickname:        " << nickname << std::endl;
+	std::cout << "Login:           " << login << std::endl;
+	std::cout << "Postal address:  " << postal_address << std::endl;
+	std::cout << "Email address:   " << email_address << std::endl;
+	std::cout << "Phone number:    " << phone_number << std::endl;
+	std::cout << "Birthday date:   " << birthday_date << std::endl;
+	std::cout << "Favorite meal:   " << favorite_meal << std::endl;
+	std::cout << "Underwear color: " << underwear_color << std::endl;
+	std::cout << "Darkest secret:  " << darkest_secret << std::endl;
+	return;
+}
+
+int			Contact::fill_fields(int number){
+
+	index = number;
 	std::cout << "Enter contact's first name: ";
 	std::cin >> first_name;
 	std::cout << "Enter contact's last name: ";
@@ -42,12 +59,11 @@ string		Contact::print_search_fields(void){
 Contact::Contact(void){
 
 	this->index = -1;
-	std::cout << "Constructor called" << std::endl;
 	return;
 }
 
 Contact::~Contact(void){
 
-	//std::cout << "Destructor called" << std::endl;
+	return;
 }
 

@@ -30,14 +30,22 @@ int		ft_command(string command)
 
 int		ft_addcntct(Contact *field, int number)
 {
-	field->index = number;
-	field->fill_fields();
-	std::cout << field->print_search_fields() << std::endl;
+	field->fill_fields(number);
 	return (0);
 }
 
-int		ft_srccntct()
+int		ft_srccntct(Contact *instance)
 {
+	int		i;
+
+	i = 0;
+	while (i < 8){
+		if ((instance + i)->index != -1)
+			std::cout << (instance + i)->print_search_fields() << std::endl;
+		i++;
+	}
+	if (i >= 8 && instance->index == -1)
+		std::cout << "Nothing to search. Phonebook is empty" << std::endl;
 	return (0);
 }
 
@@ -55,12 +63,18 @@ int		main(void)
 		std::cin >> command;
 		check = ft_command(command);
 		if (check == 1){
-			while (instance[i].index != -1)
+			while (i < 8){
+				if (instance[i].index == -1){
+					ft_addcntct(&instance[i], i);
+					break;
+				}
 				i++;
-			ft_addcntct(&instance[i], i);
+			}
+			if (i == 8)
+				std::cout << "You have added more than 8 contacts. Phone book is fullfilled" << std::endl;
 		}
 		else if (check == 2)
-			ft_srccntct();
+			ft_srccntct(&instance[0]);
 		else if (check == 3)
 			return (0);
 		else

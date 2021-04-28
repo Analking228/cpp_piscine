@@ -7,11 +7,13 @@ class Contact {
 
 public:
 	string	print_search_fields(void);
-	int		fill_fields(void);
+	void	print_fields(void);
+	int		fill_fields(int number);
 	Contact(void);
 	~Contact(void);
-
 	int		index;
+
+private:
 	string	first_name;
 	string	last_name;
 	string	nickname;
