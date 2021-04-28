@@ -1,8 +1,6 @@
 #include "crappybook.hpp"
 #include "contact.class.hpp"
 
-// typedef std::string string;
-
 void	ft_welcome(void)
 {
 	std::cout << "Hi! I'm the Crappy Phone Book" << std::endl;
@@ -34,6 +32,25 @@ int		ft_addcntct(Contact *field, int number)
 	return (0);
 }
 
+int		ft_choosesearch(Contact *instance){
+
+	int		index;
+	string	ggs;
+	
+	std::cout << "Enter the searching contact's index: ";
+	getline(std::cin, ggs);
+	index = atoi(ggs.c_str());
+	if (!ft_strsrc("01234567", std::to_string(index), 8)){
+		std::cout << "Index error" << std::endl;
+		return (-1);
+	}
+	else if ((instance + index)->index == -1)
+		std::cout << "An empty field" << std::endl;
+	else if (index < 8 && index >= 0)
+		(instance + index)->print_fields();
+	return (0);
+}
+
 int		ft_srccntct(Contact *instance)
 {
 	int		i;
@@ -46,6 +63,8 @@ int		ft_srccntct(Contact *instance)
 	}
 	if (i >= 8 && instance->index == -1)
 		std::cout << "Nothing to search. Phonebook is empty" << std::endl;
+	else
+		ft_choosesearch(instance);
 	return (0);
 }
 
@@ -60,7 +79,7 @@ int		main(void)
 	while (1 < 2)
 	{
 		std::cout << ">>";
-		std::cin >> command;
+		getline(std::cin, command, '\n');
 		check = ft_command(command);
 		if (check == 1){
 			while (i < 8){
