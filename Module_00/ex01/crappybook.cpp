@@ -1,7 +1,4 @@
-#include <string>
-#include <iostream>
-
-typedef std::string string;
+#include "../includes/crappybook.hpp"
 
 void	ft_welcome(void)
 {
@@ -17,16 +14,33 @@ void	ft_welcome(void)
 	std::cout << "Please enter the command" << std::endl << std::endl;
 }
 
-int		ft_phonebook(string command)
+int		ft_command(string command)
 {
-	const int	ctcts_count = 8;
-	string		contacts[ctcts_count];
-	int			i;
-
+	if (ft_strsrc(command, "ADD", 3))
+		return (1);
+	else if (ft_strsrc(command, "SEARCH", 6))
+		return (2);
+	else if (ft_strsrc(command, "EXIT", 4))
+		return (3);
 	return (0);
 }
 
-int		ft_command(string command)
+int		ft_addcntct()
+{
+	const int	ctncts_count = 8;
+	string		contacts[ctncts_count][255];
+	int			i;
+
+	i = 0;
+	std::cout << "Enter contact name: ";
+	while (contacts[i][0] == 0)
+		i++;
+	std::cin >> *(contacts[i]); 
+	std::cout << *(contacts[i]);
+	return (0);
+}
+
+int		ft_srccntct()
 {
 	return (0);
 }
@@ -34,22 +48,22 @@ int		ft_command(string command)
 int		main(void)
 {
 	string	command;
+	int		check;
 
 	ft_welcome();
 	while (1 < 2)
 	{
 		std::cout << ">>";
 		std::cin >> command;
-		if (ft_command(command))
-		{
-			if (ft_phonebook(command))
-				return (0);
-		}
+		check = ft_command(command);
+		if (check == 1)
+			ft_addcntct();
+		else if (check == 2)
+			ft_srccntct();
+		else if (check == 3)
+			return (0);
 		else
-		{
-			std::cout << "Error: bad instruction" << std::endl;
-			return (1);
-		}
+			std::cout << "Error: bad instruction" << std::endl << std::endl;
 	}
 	return (0);
 }
