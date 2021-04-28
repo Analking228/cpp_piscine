@@ -17,14 +17,14 @@ FLAGS = #-Wall -Wextra -Werror
 
 
 all: $(NAME)
-$(NAME): $(OBJ)
+$(NAME): $(OBJ_DIR)$(OBJ)
 	$(CC) $(OBJ) -o $(NAME) $(FLAGS)
 
 %.o: %.cpp
 	$(CC) -c $< -o $@ $(FLAGS)
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ_DIR)$(OBJ)
 
 fclean:	clean
 	@ rm -f $(NAME)
