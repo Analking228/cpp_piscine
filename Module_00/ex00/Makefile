@@ -1,7 +1,7 @@
 NAME = megaphone
 CC = g++
 FILES = megaphone
-FLAGS = -Wall -Wextra -Werror -static
+FLAGS = -Wall -Wextra -Werror
 
 SRC_FILES = $(addsuffix .cpp, $(FILES))
 
