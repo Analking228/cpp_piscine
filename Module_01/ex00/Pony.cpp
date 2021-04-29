@@ -18,10 +18,10 @@ Pony::Pony(void){
 
 void	Pony::the_sisterstory(void){
 
-	std::cout << "Hi! My name is " << this->name << " and I am PONY!" << std::endl;
-	std::cout << "I was born on the " << this->birth_place << " and really proud of this!" << std::endl;
-	std::cout << this->advantages << std::endl;
-	std::cout << "By the way, I am " << this->age << " years old! Nice to meet you" << std::endl; 
+	std::cout << "Hi! My name is " << this->name << " and I am PONY!" << "\n"
+			<< "I was born on the " << this->birth_place << " and really proud of this!" << "\n"
+			<< this->advantages << "\n"
+			<< "By the way, I am " << this->age << " years old! Nice to meet you" << std::endl; 
 }
 
 Pony::~Pony(){

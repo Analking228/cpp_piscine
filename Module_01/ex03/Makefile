@@ -1,0 +1,34 @@
+NAME = Zombie
+
+HEADER = Zombie.hpp \
+			ZombieEvent.hpp
+
+SRC = main.cpp\
+		Zombie.cpp\
+		ZombieHorde.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+CC = clang++ -std=c++98
+
+RM = rm -rf
+
+FLAGS = -Wall -Wextra -Werror
+
+
+all: $(NAME) $(OBJ)
+$(NAME): $(OBJ_DIR)$(OBJ)
+	$(CC) $(OBJ) -o $(NAME) $(FLAGS)
+
+%.o: %.cpp
+	$(CC) -c $< -o $@ $(FLAGS)
+
+clean:
+	$(RM) $(OBJ_DIR)$(OBJ)
+
+fclean:	clean
+	@ rm -f $(NAME)
+
+re:		fclean all
+
+.PHONY: all clean fclean re bonus
