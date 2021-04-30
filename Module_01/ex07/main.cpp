@@ -1,58 +1,69 @@
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <sstream>
 #include <string>
 
-std::string changeFileName(std::string fileName){
-	std::string fileNameUpper = fileName;
+using string=std::string;
 
-	for(int i = 0; fileName[i] != 0; i++){
-		fileNameUpper[i] = toupper(fileName[i]);
+std::ifstream* newFile(string fileName) {
+	
+	std::ifstream *File = new std::ifstream;
+	
+	File->open(fileName);
+	if (File->fail()){
+		std::cout << "Error: cannot open " << fileName << " file" << std::endl;
+		delete (File);
+		return (NULL);
 	}
-	fileNameUpper += ".replace";
-	return (fileNameUpper);
+	return (File);
 }
 
-void createFile(std::string fileName, std::string s1, std::string s2){
-	std::ifstream iFile;
-	iFile.open(fileName);
-	if (iFile.fail()){
-		std::cout << "Error::Unable to open file: " << fileName << std::endl;
-		exit(1);
+int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
+	
+	std::ofstream *oFile = new std::ofstream;
+
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(),
+                   [](unsigned char c) -> unsigned char { return std::toupper(c); });
+	fileName += ".replace";
+	oFile->open(fileName);
+	if (oFile->fail()){
+		std::cout << "Error::Unable ot create file: " << fileName << std::endl;
+		delete (oFile);
+		return (1);
 	}
 
-	std::string fileNameUpper = changeFileName(fileName);
-
-	std::ofstream oFile;
-	oFile.open(fileNameUpper, std::ios::trunc);
-	if (oFile.fail()){
-		std::cout << "Error::Unable ot create file: " << fileNameUpper << std::endl;
-		exit(1);
-	}
-
-	std::string text;
+	string text;
 	std::stringstream buffer;
-	buffer<< iFile.rdbuf();
+	buffer<< File->rdbuf();
 	text = buffer.str();
 	size_t i = 0;
-	while((i = text.find(s1, i)) != std::string::npos){
+	while((i = text.find(s1, i)) != string::npos){
 		text.replace(i, s1.length(), s2);
 		i += s2.length();
 	}
-	oFile << text << std::endl;
-	oFile.close();
-	iFile.close();
+	*oFile << text << std::endl;
+	oFile->close();
+	File->close();
+	return (0);
 }
 
 int main(int ac, char **av){
+	
+	std::ifstream *File;
+
 	if (ac != 4) {
-		std::cout << "usage: ./replace [file] [what_replace] [with_what_replace]" << std::endl;
-		exit(1);
+		std::cout << "Error: Bad input" << "\n" << "Please enter data as folows:" << "\n" 
+		<< "{filename} {string to change} {changing string}" << std::endl;
+		return (1);
 	}
-	if (!av[1]  || !av[2] || !av[3] || !*av[1] || !*av[2] || !*av[3]){
-		std::cout << "Error::Bad input info" << std::endl;
-		exit(1);
+	if (!av[1]  || !av[2] || !av[3] ){
+		std::cout << "Error:Bad input" << std::endl;
+		return (1);
 	}
-	createFile(std::string(av[1]), std::string(av[2]), std::string(av[3]));
+	File = newFile(string(av[1]));
+	if (*File)
+		changeStr(string(av[1]), string(av[2]), string(av[3]), File);
+	delete (File);
 	return (0);
 }

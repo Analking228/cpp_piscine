@@ -1,5 +1,5 @@
 NAME = replace
-PPFLAG = -Wall -Wextra -Werror
+PPFLAG = #-Wall -Wextra -Werror
 COMP =	clang++ $(PPFLAG)
 FILE =	main.cpp
 
