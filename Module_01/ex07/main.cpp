@@ -32,7 +32,7 @@ int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 		std::cout << "Error::Unable ot create file: " << fileName << std::endl;
 		return (1);
 	}
-/*
+
 	string text;
 	std::stringstream buffer;
 	buffer<< File->rdbuf();
@@ -42,7 +42,7 @@ int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 		text.replace(i, s1.length(), s2);
 		i += s2.length();
 	}
-	*oFile << text << std::endl;*/
+	oFile << text << std::endl;
 	oFile.close();
 	File->close();
 	return (0);
