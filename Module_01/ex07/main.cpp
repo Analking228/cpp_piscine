@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <string.h>
 
 using string=std::string;
 
@@ -21,18 +22,17 @@ std::ifstream* newFile(string fileName) {
 
 int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 	
-	std::ofstream *oFile = new std::ofstream;
+	std::ofstream oFile;
 
 	std::transform(fileName.begin(), fileName.end(), fileName.begin(),
                    [](unsigned char c) -> unsigned char { return std::toupper(c); });
 	fileName += ".replace";
-	oFile->open(fileName);
-	if (oFile->fail()){
+	oFile.open(fileName, std::ofstream::trunc);
+	if (oFile.fail()){
 		std::cout << "Error::Unable ot create file: " << fileName << std::endl;
-		delete (oFile);
 		return (1);
 	}
-
+/*
 	string text;
 	std::stringstream buffer;
 	buffer<< File->rdbuf();
@@ -42,8 +42,8 @@ int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 		text.replace(i, s1.length(), s2);
 		i += s2.length();
 	}
-	*oFile << text << std::endl;
-	oFile->close();
+	*oFile << text << std::endl;*/
+	oFile.close();
 	File->close();
 	return (0);
 }
@@ -64,6 +64,5 @@ int main(int ac, char **av){
 	File = newFile(string(av[1]));
 	if (*File)
 		changeStr(string(av[1]), string(av[2]), string(av[3]), File);
-	delete (File);
 	return (0);
 }
