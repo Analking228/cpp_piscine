@@ -5,7 +5,9 @@
 #include <string>
 #include <string.h>
 
-using string=std::string;
+/*using string=std::string;*/
+
+typedef std::string string;
 
 std::ifstream* newFile(string fileName) {
 	
@@ -24,8 +26,7 @@ int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 	
 	std::ofstream oFile;
 
-	std::transform(fileName.begin(), fileName.end(), fileName.begin(),
-                   [](unsigned char c) -> unsigned char { return std::toupper(c); });
+	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::toupper);
 	fileName += ".replace";
 	oFile.open(fileName, std::ofstream::trunc);
 	if (oFile.fail()){

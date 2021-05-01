@@ -1,12 +1,12 @@
 NAME = replace
-PPFLAG = #-Wall -Wextra -Werror
-COMP =	clang++ $(PPFLAG)
+FLAGS = -Wall -Wextra -Werror
+COMP =	clang++ $(FLAGS)
 FILE =	main.cpp
 
 all : $(NAME)
 
 $(NAME):
-	@$(COMP) $(FILE) -o $(NAME)
+	@$(COMP) $(FILE) -o $(NAME) 
 
 clean:
 	@rm -rf *.gch
