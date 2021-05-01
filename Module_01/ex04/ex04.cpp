@@ -2,7 +2,7 @@
 
 int		main(){
 
-	std::string		str = "qwertyuiop";
+	std::string		str = "HI THIS IS BRAIN";
 	std::string*	str1 = &str;
 	std::string		&str2 = str;
 

@@ -15,7 +15,7 @@ std::ifstream* newFile(string fileName) {
 	
 	File->open(fileName);
 	if (File->fail()){
-		std::cout << "Error: cannot open " << fileName << " file" << std::endl;
+		std::cout << "Error: Cannot open " << fileName << " file" << std::endl;
 		delete (File);
 		return (NULL);
 	}
@@ -25,19 +25,18 @@ std::ifstream* newFile(string fileName) {
 int	changeStr(string fileName, string s1, string s2, std::ifstream *File){
 	
 	std::ofstream oFile;
+	string text;
+	std::stringstream buf;
 
 	std::transform(fileName.begin(), fileName.end(), fileName.begin(), ::toupper);
 	fileName += ".replace";
 	oFile.open(fileName, std::ofstream::trunc);
 	if (oFile.fail()){
-		std::cout << "Error::Unable ot create file: " << fileName << std::endl;
+		std::cout << "Error: Cannot create " << fileName << " file" << std::endl;
 		return (1);
 	}
-
-	string text;
-	std::stringstream buffer;
-	buffer<< File->rdbuf();
-	text = buffer.str();
+	buf << File->rdbuf();
+	text = buf.str();
 	size_t i = 0;
 	while((i = text.find(s1, i)) != string::npos){
 		text.replace(i, s1.length(), s2);
@@ -59,7 +58,7 @@ int main(int ac, char **av){
 		return (1);
 	}
 	if (!av[1]  || !av[2] || !av[3] ){
-		std::cout << "Error:Bad input" << std::endl;
+		std::cout << "Error: Bad input" << std::endl;
 		return (1);
 	}
 	File = newFile(string(av[1]));
