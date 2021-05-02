@@ -10,7 +10,8 @@ public:
 	Fixed();
 	~Fixed();
 
-	Fixed(Fixed const &fixed);
-	Fixed&				operator= (Fixed const &);
-	int					getRawBits(void);
+	Fixed(const Fixed& other);
+	Fixed&				operator= (const Fixed& fixed);
+	int					getRawBits(void) const;
+	void				setRawBits(int const raw);
 };
