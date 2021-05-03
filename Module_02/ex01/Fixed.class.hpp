@@ -11,14 +11,14 @@ public:
 	Fixed();
 	~Fixed();
 
-	Fixed(Fixed const &fixed);
-	Fixed(int const);
-	Fixed(float const);
-	Fixed&				operator = (Fixed const &);
+	Fixed(const Fixed& other);
+	Fixed(const int);
+	Fixed(const float);
+	Fixed&				operator = (const Fixed&);
 	int					toInt() const;
 	float				toFloat() const;
 	int					getRawBits(void);
-	void				setRawBits(int const raw);
+	void				setRawBits(const int raw);
 };
 
-	std::ostream&		operator << (std::ostream &out, Fixed const &val);
+	std::ostream&		operator << (std::ostream &out, const Fixed& val);
