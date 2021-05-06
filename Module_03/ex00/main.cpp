@@ -10,14 +10,24 @@ int		main(void){
 	srand(static_cast<unsigned int>(time(0)));
 	
 	trap2.meleeAttack("Strange nude guy with sh*tgun");
+	std::cout << std::endl;
 	trap3.rangedAttack("Amother FR4G-TP");
-	trap4.beRepaired(100);
+	std::cout << std::endl;
+	trap.takeDamage(40);
+	std::cout << std::endl;
+	trap4.beRepaired(20);
+	std::cout << std::endl;
 	std::cout << "lol" << std::endl;
+	std::cout << std::endl;
 	trap.vaulthunter_dot_exe("Yetty");
+	std::cout << std::endl;
 	trap.vaulthunter_dot_exe("Yetty");
+	std::cout << std::endl;
 	trap.vaulthunter_dot_exe("Yetty");
+	std::cout << std::endl;
 	trap.vaulthunter_dot_exe("Yetty");
+	std::cout << std::endl;
 	trap.vaulthunter_dot_exe("baby Yetty");
-	trap.takeDamage(150);
+	std::cout << std::endl;
 	return (0);
 }

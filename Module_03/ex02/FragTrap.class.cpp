@@ -1,58 +1,38 @@
-# include "FragTrap.class.hpp"
+#include "FragTrap.class.hpp"
+#include "ClapTrap.class.hpp"
 
-FragTrap::FragTrap() : __Name("FlexTrap")  { 
-	__HitPoints = 100;
-	__MaxHP = 100;
+FragTrap::FragTrap() : ClapTrap::ClapTrap("Shoe_box_ULTRA") {
+
 	__EnergyPoints = 100;
 	__MaxEP = 100;
-	__Level = 1;
 	__MeeleAttackDamage = 30;
 	__RangedAttackDamage = 20;
 	__ArmorReduction = 5;
-	std::cout << __Name << " bot, class: FR4G-TP" << "\n"
-	<< "{" << __HitPoints << "} HP" << "\n"
-	<< "{" << __EnergyPoints << "} Energy" << "\n"
-	<< "{" << __Level << "} Level" << "\n"
-	<< "{" << __MeeleAttackDamage << "} MeleeAttack" << "\n"
-	<< "{" << __RangedAttackDamage << "} RangeAttack" << "\n"
-	<< "{" << __ArmorReduction << "} Armour" << std::endl;
+	std::cout << "U just made " << __Name << "! U so unlucky..." << std::endl;
 }
 
-FragTrap::~FragTrap() {
+FragTrap::FragTrap(const std::string &name) : ClapTrap::ClapTrap(name) {
 
-	std::cout << this->__Name << " has been Destroyed" << std::endl;
-}
-
-FragTrap::FragTrap(const std::string &name) : __Name(name) {
-
-	this->__HitPoints = 100;
-	this->__MaxHP = 100;
+	std::cout << "ShoeBox class FR4G-TP (" << __Name << ") \n";
+	std::cout <<  "HP {" << __HitPoints << "} \n";
 	this->__EnergyPoints = 100;
+	std::cout << "EP {" << __EnergyPoints << "} \n";
 	this->__MaxEP = 100;
-	this->__Level = 1;
+	std::cout << "Level {" << __Level << "}\n";
 	this->__MeeleAttackDamage = 30;
+	std::cout << "Melee Damage {"<< __MeeleAttackDamage << "}\n";
 	this->__RangedAttackDamage = 20;
+	std::cout << "Ranged Damge {"<< __RangedAttackDamage << "}\n";
 	this->__ArmorReduction = 5;
+	std::cout << "Armour {" << __ArmorReduction << "}\n";
 	std::cout << "Now you can call me " << this->__Name
 	<< ". Yes! I got my OWN name" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& other) : __Name(other.__Name) {
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other){
 
-	this->__HitPoints = other.__HitPoints;
-	this->__MaxHP = other.__MaxHP;
-	this->__EnergyPoints = other.__EnergyPoints;
-	this->__MaxEP = other.__MaxEP;
-	this->__Level = other.__Level;
-	this->__MeeleAttackDamage = other.__MeeleAttackDamage;
-	this->__RangedAttackDamage = other.__RangedAttackDamage;
-	this->__ArmorReduction = other.__ArmorReduction;
 	std::cout << "Created " << this->__Name << "(copy) -- Yes... I am just a copy..." << std::endl;
 }
-
-
-
-
 
 void		FragTrap::vaulthunter_dot_exe(std::string const & target){
 
@@ -90,4 +70,9 @@ FragTrap&	FragTrap::operator=(const FragTrap& other){
 	this->__RangedAttackDamage = other.__RangedAttackDamage;
 	this->__ArmorReduction = other.__ArmorReduction;
 	return (*this);
+}
+
+FragTrap::~FragTrap() {
+
+	std::cout << this->__Name << " has been Destroyed" << std::endl;
 }

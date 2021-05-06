@@ -1,12 +1,10 @@
 #include "ScavTrap.class.hpp"
+#include "ClapTrap.class.hpp"
 
-ScavTrap::ScavTrap() : __Name("Door Waiter") {
+ScavTrap::ScavTrap() : ClapTrap("Door_waiter"){
 
-	__HitPoints = 100;
-	__MaxHP = 100;
 	__EnergyPoints = 50;
 	__MaxEP = 50;
-	__Level = 1;
 	__MeeleAttackDamage = 20;
 	__RangedAttackDamage = 15;
 	__ArmorReduction = 3;
@@ -19,13 +17,10 @@ ScavTrap::ScavTrap() : __Name("Door Waiter") {
 	<< "{" << __ArmorReduction << "} Armour" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : __Name(name) {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
 
-	__HitPoints = 100;
-	__MaxHP = 100;
 	__EnergyPoints = 50;
 	__MaxEP = 50;
-	__Level = 1;
 	__MeeleAttackDamage = 20;
 	__RangedAttackDamage = 15;
 	__ArmorReduction = 3;
@@ -33,17 +28,8 @@ ScavTrap::ScavTrap(const std::string& name) : __Name(name) {
 	<< "But U will open door by yourself!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) {
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other){
 
-	__Name = other.__Name;
-	__HitPoints = other.__HitPoints;
-	__MaxHP = other.__MaxHP;
-	__EnergyPoints = other.__EnergyPoints;
-	__MaxEP = other.__MaxEP;
-	__Level = other.__Level;
-	__MeeleAttackDamage = other.__MeeleAttackDamage;
-	__RangedAttackDamage = other.__RangedAttackDamage;
-	__ArmorReduction = other.__ArmorReduction;
 	std::cout << "I'm a just coppy of another waiter " << __Name << "\n"
 	<< "my name is " << __Name << "(copy)" << std::endl;
 }
@@ -60,39 +46,6 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other) {
 	__RangedAttackDamage = other.__RangedAttackDamage;
 	__ArmorReduction = other.__ArmorReduction;
 	return (*this);	
-}
-
-void		ScavTrap::rangedAttack(const std::string& target){
-
-	std::cout << "SC4V-TP(useless doorwaiter) " << this->__Name << " attacks {" << target << "} at range, causing "
-	<< this->__RangedAttackDamage << " points of damage!" << std::endl;
-}
-void		ScavTrap::meleeAttack(const std::string& target){
-
-	std::cout << "SC4V-TP(useless doorwaiter) " << this->__Name << " attacks {" << target << "} at melee, causing "
-	<< this->__MeeleAttackDamage << " points of damage!" << std::endl;
-}
-
-void		ScavTrap::takeDamage(unsigned int amount){
-
-	this->__HitPoints -= (amount - __ArmorReduction);
-	if (this->__HitPoints < 0){
-		this->__HitPoints = 0;
-		std::cout << this->__Name << " - Oh no It damaged me so hard... I have "
-		<< this->__HitPoints << " Am..." << std::endl;
-		return ;
-	}
-	std::cout << "SC4V-TP(useless doorwaiter) " << this->__Name << " takes damage " << amount
-	<< " and now have "<< this->__HitPoints << " only!" << std::endl;
-}
-
-void		ScavTrap::beRepaired(unsigned int amount){
-
-	this->__HitPoints += amount;
-	if (this->__HitPoints > this->__MaxHP)
-		this->__HitPoints = this->__MaxHP;
-	std::cout << "SC4V-TP(useless doorwaiter) " << this->__Name << " repairing " << amount
-	<< " HP and have "<< this->__HitPoints << " now!" << std::endl;
 }
 
 void		ScavTrap::challengeNewcomer(void) {
