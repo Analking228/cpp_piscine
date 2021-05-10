@@ -1,17 +1,12 @@
 #include "FragTrap.class.hpp"
 #include "ClapTrap.class.hpp"
 
-FragTrap::FragTrap() : ClapTrap::ClapTrap("Shoe_box_ULTRA") {
+FragTrap::FragTrap() : ClapTrap::ClapTrap("Shoe_box_ULTRA", 100, 100, 1, 100, 100, 30, 20 , 5) {
 
-	__EnergyPoints = 100;
-	__MaxEP = 100;
-	__MeeleAttackDamage = 30;
-	__RangedAttackDamage = 20;
-	__ArmorReduction = 5;
 	std::cout << "U just made " << __Name << "! U so unlucky..." << std::endl;
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name) {
+FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name, 100, 100, 1, 100, 100, 30, 20 , 5) {
 
 	std::cout << "ShoeBox class FR4G-TP (" << __Name << ") \n";
 	std::cout <<  "HP {" << __HitPoints << "} \n";
