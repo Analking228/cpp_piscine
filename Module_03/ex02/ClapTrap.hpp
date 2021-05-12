@@ -8,18 +8,16 @@
 
 class ClapTrap{
 
-private:
-	int			__EnergyPoints;
-	int			__MaxEP;
-	int			__MeeleAttackDamage;
-	int			__RangedAttackDamage;
-	int			__ArmorReduction;
-
 protected:
 	std::string	__Name;
 	int			__HitPoints;
 	int			__MaxHP;
 	int			__Level;
+	int			__EnergyPoints;
+	int			__MaxEP;
+	int			__MeeleAttackDamage;
+	int			__RangedAttackDamage;
+	int			__ArmorReduction;
 
 public:
 	ClapTrap();

@@ -5,13 +5,6 @@
 
 class ScavTrap : public ClapTrap {
 
-private:
-	int			__EnergyPoints;
-	int			__MaxEP;
-	int			__MeeleAttackDamage;
-	int			__RangedAttackDamage;
-	int			__ArmorReduction;	
-
 public:
 	ScavTrap();
 	~ScavTrap();
