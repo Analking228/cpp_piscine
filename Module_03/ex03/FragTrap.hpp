@@ -1,7 +1,7 @@
-#ifndef FRAGTRAP_CLASS_HPP
-# define FRAGTRAP_CLASS_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-# include "ClapTrap.class.hpp"
+# include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap{
 

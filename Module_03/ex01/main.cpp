@@ -1,4 +1,5 @@
-#include "ScavTrap.class.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int		main(void){
 
@@ -11,6 +12,7 @@ int		main(void){
 	srand(static_cast<unsigned int>(time(0)));
 
 	Waiter4 = waiter;
+	trap2.meleeAttack("AYE");
 	std::cout << std::endl;
 	trap2.meleeAttack("CL4P-TP");
 	waiter.meleeAttack("FR4G-TP");

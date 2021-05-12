@@ -1,5 +1,5 @@
-#include "ScavTrap.class.hpp"
-#include "ClapTrap.class.hpp"
+#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap("Door_waiter", 100, 100, 1, 50, 50, 20, 15, 3){
 

@@ -1,4 +1,4 @@
-#include "NinjaTrap.class.hpp"
+#include "NinjaTrap.hpp"
 
 NinjaTrap::NinjaTrap() : ClapTrap("Hell's boss", 60, 60, 1, 120, 120, 50, 5, 0) {
 
@@ -39,6 +39,12 @@ void		NinjaTrap::ninjaShoebox(const FragTrap& target) {
 
 	std::cout << "Lookout {" << target.getName() << "} !!!" << "\n";
 	std::cout << "Backflip!?" << std::endl;
+}
+
+void		NinjaTrap::ninjaShoebox(const ScavTrap& target) {
+
+	std::cout << "Lookout {FR4G-TP} !!!" << "\n";
+	std::cout << __Name << ": I WIL JUST STAND, " << target.getName() << "!" << std::endl;
 }
 
 NinjaTrap&	NinjaTrap::operator=(const NinjaTrap& other){

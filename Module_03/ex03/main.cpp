@@ -1,4 +1,4 @@
-#include "NinjaTrap.class.hpp"
+#include "NinjaTrap.hpp"
 
 int		main(void){
 
@@ -8,6 +8,8 @@ int		main(void){
 	NinjaTrap	ninja("INAC");
 	NinjaTrap	copy(ninja);
 
+	srand(static_cast<unsigned int>(time(0)));
+	
 	ninja.meleeAttack("VoluteHunters");
 	ninja.rangedAttack("AMOGUS");
 	ninja.ninjaShoebox(dummy);

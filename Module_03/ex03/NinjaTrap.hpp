@@ -1,8 +1,8 @@
-#ifndef NINJATRAP_CLASS_HPP
-# define NINJATRAP_CLASS_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
-# include "FragTrap.class.hpp"
-# include "ScavTrap.class.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
 class NinjaTrap : public ClapTrap {
 

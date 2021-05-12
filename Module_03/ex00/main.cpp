@@ -1,11 +1,13 @@
-#include "FragTrap.class.hpp"
+#include "FragTrap.hpp"
 
 int		main(void){
 
 	FragTrap	trap;
 	FragTrap	trap2("Johny");
 	FragTrap	trap3(trap);
-	FragTrap	trap4 = trap2;
+	FragTrap	trap4;
+
+	trap4 = trap2;
 
 	srand(static_cast<unsigned int>(time(0)));
 	

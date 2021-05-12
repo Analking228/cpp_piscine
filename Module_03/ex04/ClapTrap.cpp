@@ -1,4 +1,4 @@
-#include "ClapTrap.class.hpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : __Name("Standart Dummy"){
 
@@ -17,9 +17,9 @@ ClapTrap::ClapTrap(const std::string& name) :
 			__Name(name),
 			__HitPoints(100),
 			__MaxHP(100),
+			__Level(1),
 			__EnergyPoints(100),
 			__MaxEP(100),
-			__Level(1),
 			__MeeleAttackDamage(30),
 			__RangedAttackDamage(20),
 			__ArmorReduction(5)
@@ -40,9 +40,9 @@ ClapTrap::ClapTrap(const std::string& name,
 			__Name(name),
 			__HitPoints(hp),
 			__MaxHP(mhp),
+			__Level(lvl),
 			__EnergyPoints(ep),
 			__MaxEP(mep),
-			__Level(lvl),
 			__MeeleAttackDamage(mad),
 			__RangedAttackDamage(rad),
 			__ArmorReduction(ar)
@@ -55,9 +55,9 @@ ClapTrap::ClapTrap(const ClapTrap& other) :
 				__Name(other.__Name),
 				__HitPoints(other.__HitPoints),
 				__MaxHP(other.__MaxHP),
+				__Level(other.__Level),
 				__EnergyPoints(other.__EnergyPoints),
 				__MaxEP(other.__MaxEP),
-				__Level(other.__Level),
 				__MeeleAttackDamage(other.__MeeleAttackDamage),
 				__RangedAttackDamage(other.__RangedAttackDamage),
 				__ArmorReduction(other.__ArmorReduction){

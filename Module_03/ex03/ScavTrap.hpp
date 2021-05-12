@@ -1,7 +1,7 @@
-#ifndef SCAVTRAP_CLASS_HPP
-# define SCAVTRAP_CLASS_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include "ClapTrap.class.hpp"
+# include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap{
 

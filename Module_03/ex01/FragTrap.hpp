@@ -1,5 +1,5 @@
-#ifndef FRAGTRAP_CLASS_HPP
-# define FRAGTRAP_CLASS_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include <string>
@@ -9,12 +9,13 @@
 class FragTrap{
 
 private:
+	std::string	__Name;
 	int			__HitPoints;
 	int			__MaxHP;
 	int			__EnergyPoints;
 	int			__MaxEP;
 	int			__Level;
-	std::string	__Name;
+	
 	int			__MeeleAttackDamage;
 	int			__RangedAttackDamage;
 	int			__ArmorReduction;

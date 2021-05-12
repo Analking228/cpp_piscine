@@ -1,17 +1,18 @@
-#ifndef SCAVTRAP_CLASS_HPP
-# define SCAVTRAP_CLASS_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include "FragTrap.class.hpp"
+# include "FragTrap.hpp"
 
 class ScavTrap{
 
 private:
+	std::string	__Name;
 	int			__HitPoints;
 	int			__MaxHP;
 	int			__EnergyPoints;
 	int			__MaxEP;
 	int			__Level;
-	std::string	__Name;
+	
 	int			__MeeleAttackDamage;
 	int			__RangedAttackDamage;
 	int			__ArmorReduction;	

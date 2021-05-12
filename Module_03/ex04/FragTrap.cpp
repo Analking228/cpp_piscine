@@ -1,9 +1,8 @@
-#include "FragTrap.class.hpp"
-#include "ClapTrap.class.hpp"
+#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 FragTrap::FragTrap() : ClapTrap::ClapTrap("Shoe_box_ULTRA", 100, 100, 1, 100, 100, 30, 20 , 5) {
 
-	std::cout << "U just made " << __Name << "! U so unlucky..." << std::endl;
 }
 
 FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name, 100, 100, 1, 100, 100, 30, 20 , 5) {
@@ -53,6 +52,12 @@ void		FragTrap::vaulthunter_dot_exe(std::string const & target){
 	<< attacks[std::rand() % 8] << " HP and now have "<< this->__EnergyPoints << " EP" << std::endl;
 }
 
+void		FragTrap::rangedAttack(const std::string& target) {
+
+	std::cout << "{" << this->__Name << "} attacks at range {" << target << "} and causing {"
+	<< this->__RangedAttackDamage << "} damage! WOW!" << std::endl;
+}
+
 FragTrap&	FragTrap::operator=(const FragTrap& other){
 
 	this->__Name = other.__Name;
@@ -69,5 +74,5 @@ FragTrap&	FragTrap::operator=(const FragTrap& other){
 
 FragTrap::~FragTrap() {
 
-	std::cout << this->__Name << " has been Destroyed" << std::endl;
+	std::cout << "FR4G-TP has been Destroyed" << std::endl;
 }

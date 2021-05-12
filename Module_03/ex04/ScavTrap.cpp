@@ -1,13 +1,8 @@
-#include "ScavTrap.class.hpp"
-#include "ClapTrap.class.hpp"
+#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("Door_waiter"){
+ScavTrap::ScavTrap() : ClapTrap("Door_waiter", 100, 100, 1, 50, 50, 20, 15, 3){
 
-	__EnergyPoints = 50;
-	__MaxEP = 50;
-	__MeeleAttackDamage = 20;
-	__RangedAttackDamage = 15;
-	__ArmorReduction = 3;
 	std::cout << __Name << " bot, class: SC4V-TP" << "\n"
 	<< "{" << __HitPoints << "} HP" << "\n"
 	<< "{" << __EnergyPoints << "} Energy" << "\n"
@@ -17,14 +12,8 @@ ScavTrap::ScavTrap() : ClapTrap("Door_waiter"){
 	<< "{" << __ArmorReduction << "} Armour" << std::endl;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap() {
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name, 100, 100, 1, 50, 50, 20, 15, 3) {
 
-	__Name = name;
-	__EnergyPoints = 50;
-	__MaxEP = 50;
-	__MeeleAttackDamage = 20;
-	__RangedAttackDamage = 15;
-	__ArmorReduction = 3;
 	std::cout << "Yes!  My name is " << __Name << " and I'm Waiter" << "\n"
 	<< "But U will open door by yourself!" << std::endl;
 }

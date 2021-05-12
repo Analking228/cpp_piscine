@@ -1,15 +1,7 @@
-#include "NinjaTrap.class.hpp"
+#include "NinjaTrap.hpp"
 
 NinjaTrap::NinjaTrap() : ClapTrap("Hell's boss", 60, 60, 1, 120, 120, 50, 5, 0) {
 
-	std::cout << "Anyone... Please... Tell me that {" << __Name <<
-	"} not a real BOSS..." << "\n";
-	std::cout << "stats:" << "\n" << "HP: " << __HitPoints << "\n";
-	std::cout << "EP: " << __EnergyPoints << "\n";
-	std::cout << "Level: " << __Level << "\n";
-	std::cout << "Melee Attack: " << __MeeleAttackDamage << "\n";
-	std::cout << "Range Attack: " << __RangedAttackDamage << "\n";
-	std::cout << "YES I'M THE MAIN RAID BOSS!!!" << std::endl;
 }
 
 NinjaTrap::NinjaTrap(const std::string& name) : ClapTrap(name, 60, 60, 1, 120, 120, 50, 5, 0) {
@@ -41,10 +33,10 @@ void		NinjaTrap::ninjaShoebox(const FragTrap& target) {
 	std::cout << "Backflip!?" << std::endl;
 }
 
-void		NinjaTrap::ninjaShoebox(const ScavTrap& target) {
+void		NinjaTrap::meleeAttack(const std::string& target) {
 
-	std::cout << "Lookout {FR4G-TP} !!!" << "\n";
-	std::cout << __Name << ": I WIL JUST STAND, " << target.getName() << "!" << std::endl;
+	std::cout << "{" << this->__Name << "} attacks at melee {" << target << "} and causing {"
+	<< this->__MeeleAttackDamage << "} damage! KIYA!" << std::endl;
 }
 
 NinjaTrap&	NinjaTrap::operator=(const NinjaTrap& other){
@@ -63,5 +55,5 @@ NinjaTrap&	NinjaTrap::operator=(const NinjaTrap& other){
 
 NinjaTrap::~NinjaTrap () {
 
-	std::cout << "SEPUKU!" << std::endl;
+	std::cout << "{SEPUKU} SPACE NINJA has been destroyed" << std::endl;
 }

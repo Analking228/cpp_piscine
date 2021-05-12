@@ -1,58 +1,33 @@
-# include "FragTrap.class.hpp"
+#include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
-FragTrap::FragTrap() : __Name("FlexTrap")  { 
-	__HitPoints = 100;
-	__MaxHP = 100;
+FragTrap::FragTrap() : ClapTrap::ClapTrap("Shoe_box_ULTRA", 100, 100, 1, 100, 100, 30, 20 , 5) {
+
+	std::cout << "U just made " << __Name << "! U so unlucky..." << std::endl;
+}
+
+FragTrap::FragTrap(const std::string& name) : ClapTrap::ClapTrap(name, 100, 100, 1, 100, 100, 30, 20 , 5) {
+
+	std::cout << "ShoeBox class FR4G-TP (" << __Name << ") \n";
+	std::cout <<  "HP {" << __HitPoints << "} \n";
 	__EnergyPoints = 100;
+	std::cout << "EP {" << __EnergyPoints << "} \n";
 	__MaxEP = 100;
-	__Level = 1;
+	std::cout << "Level {" << __Level << "}\n";
 	__MeeleAttackDamage = 30;
+	std::cout << "Melee Damage {"<< __MeeleAttackDamage << "}\n";
 	__RangedAttackDamage = 20;
+	std::cout << "Ranged Damge {"<< __RangedAttackDamage << "}\n";
 	__ArmorReduction = 5;
-	std::cout << __Name << " bot, class: FR4G-TP" << "\n"
-	<< "{" << __HitPoints << "} HP" << "\n"
-	<< "{" << __EnergyPoints << "} Energy" << "\n"
-	<< "{" << __Level << "} Level" << "\n"
-	<< "{" << __MeeleAttackDamage << "} MeleeAttack" << "\n"
-	<< "{" << __RangedAttackDamage << "} RangeAttack" << "\n"
-	<< "{" << __ArmorReduction << "} Armour" << std::endl;
-}
-
-FragTrap::~FragTrap() {
-
-	std::cout << this->__Name << " has been Destroyed" << std::endl;
-}
-
-FragTrap::FragTrap(const std::string &name) : __Name(name) {
-
-	this->__HitPoints = 100;
-	this->__MaxHP = 100;
-	this->__EnergyPoints = 100;
-	this->__MaxEP = 100;
-	this->__Level = 1;
-	this->__MeeleAttackDamage = 30;
-	this->__RangedAttackDamage = 20;
-	this->__ArmorReduction = 5;
-	std::cout << "Now you can call me " << this->__Name
+	std::cout << "Armour {" << __ArmorReduction << "}\n";
+	std::cout << "Now you can call me " << __Name
 	<< ". Yes! I got my OWN name" << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& other) : __Name(other.__Name) {
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other){
 
-	this->__HitPoints = other.__HitPoints;
-	this->__MaxHP = other.__MaxHP;
-	this->__EnergyPoints = other.__EnergyPoints;
-	this->__MaxEP = other.__MaxEP;
-	this->__Level = other.__Level;
-	this->__MeeleAttackDamage = other.__MeeleAttackDamage;
-	this->__RangedAttackDamage = other.__RangedAttackDamage;
-	this->__ArmorReduction = other.__ArmorReduction;
 	std::cout << "Created " << this->__Name << "(copy) -- Yes... I am just a copy..." << std::endl;
 }
-
-
-
-
 
 void		FragTrap::vaulthunter_dot_exe(std::string const & target){
 
@@ -90,4 +65,9 @@ FragTrap&	FragTrap::operator=(const FragTrap& other){
 	this->__RangedAttackDamage = other.__RangedAttackDamage;
 	this->__ArmorReduction = other.__ArmorReduction;
 	return (*this);
+}
+
+FragTrap::~FragTrap() {
+
+	std::cout << this->__Name << " has been Destroyed" << std::endl;
 }

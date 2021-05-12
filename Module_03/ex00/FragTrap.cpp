@@ -1,6 +1,8 @@
-# include "FragTrap.class.hpp"
+# include "FragTrap.hpp"
 
-FragTrap::FragTrap() : __Name("FlexTrap"), 
+FragTrap::FragTrap() : 
+	
+	__Name("FlexTrap"), 
 	__HitPoints(100),
 	__MaxHP(100),
 	__EnergyPoints(100),

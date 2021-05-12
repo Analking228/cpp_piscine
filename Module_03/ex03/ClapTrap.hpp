@@ -1,5 +1,5 @@
-#ifndef CLAPTRAP_CLASS_HPP
-# define CLAPTRAP_CLASS_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 # include <string>
@@ -8,8 +8,7 @@
 
 class ClapTrap{
 
-public:
-
+protected:
 	std::string	__Name;
 	int			__HitPoints;
 	int			__MaxHP;
@@ -19,7 +18,8 @@ public:
 	int			__MeeleAttackDamage;
 	int			__RangedAttackDamage;
 	int			__ArmorReduction;
-	
+
+public:
 	ClapTrap();
 	~ClapTrap();
 
