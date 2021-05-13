@@ -9,14 +9,19 @@ Sorcerer::Sorcerer(const Sorcerer& other) : __Name(other.__Name), __Title(other.
 
 }
 
-const std::string&		Sorcerer::getName() {
+const std::string&		Sorcerer::getName() const{
 
 	return (this->__Name);
 }
 
-const std::string&		Sorcerer::getTitle() {
+const std::string&		Sorcerer::getTitle() const{
 
 	return (this->__Title);
+}
+
+void			Sorcerer::polymorph(const Victim& dude) const{
+
+	dude.getPolymorphed();
 }
 
 Sorcerer&		Sorcerer::operator=(const Sorcerer& other) {
@@ -24,6 +29,12 @@ Sorcerer&		Sorcerer::operator=(const Sorcerer& other) {
 	this->__Name = other.__Name;
 	this->__Title = other.__Title;
 	return (*this);
+}
+
+std::ostream&			operator<<(std::ostream& out, const Sorcerer& point) {
+
+	out << "I am " << point.getName() << ", " << point.getTitle() << ", and I like ponies!" << std::endl;
+	return out;
 }
 
 Sorcerer::~Sorcerer() {

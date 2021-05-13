@@ -2,11 +2,11 @@
 # define SORCERER_HPP
 
 # include <iostream>
+# include "Victim.hpp"
 
 class Sorcerer
 {
 private:
-
 	std::string			__Name;
 	std::string			__Title;
 
@@ -19,9 +19,12 @@ public:
 	Sorcerer(const Sorcerer& other);
 	
 	Sorcerer&			operator=(const Sorcerer& other);
-	const std::string&	getName();
-	const std::string&	getTitle();
-	//void				polymorph();
+	const std::string&	getName() const;
+	const std::string&	getTitle() const;
+	void 				polymorph(const Victim&) const;
+
 };
+
+std::ostream&			operator<<(std::ostream& out, const Sorcerer& point);
 
 #endif

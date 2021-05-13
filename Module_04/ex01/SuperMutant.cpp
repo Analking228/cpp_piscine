@@ -1,0 +1,31 @@
+#include "SuperMutant.hpp"
+
+SuperMutant::SuperMutant() : Enemy(80, "Super Mutant") {
+
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+}
+
+SuperMutant::SuperMutant(const SuperMutant& other) : Enemy(other) {
+
+	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+}
+
+void				SuperMutant::takeDamage(int dmg) {
+
+	if (this->__HP > 0)
+		this->__HP -= (dmg - 3);
+	if (this->__HP < 0)
+		this->__HP = 0;
+}
+
+SuperMutant&		SuperMutant::operator=(const SuperMutant& other) {
+
+	this->__HP = other.__HP;
+	this->__Type = other.__Type;
+	return *this;
+}
+
+SuperMutant::~SuperMutant() {
+
+	std::cout << "Aaargh..." << std::endl;
+}
