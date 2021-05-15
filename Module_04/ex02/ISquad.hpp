@@ -6,6 +6,7 @@
 # include "ISpaceMarine.hpp"
 
 class ISquad {
+
 public:
 	virtual ~ISquad() {}
 	virtual int getCount() const = 0;
