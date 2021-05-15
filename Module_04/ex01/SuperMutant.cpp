@@ -12,10 +12,9 @@ SuperMutant::SuperMutant(const SuperMutant& other) : Enemy(other) {
 
 void				SuperMutant::takeDamage(int dmg) {
 
-	if (this->__HP > 0)
-		this->__HP -= (dmg - 3);
-	if (this->__HP < 0)
-		this->__HP = 0;
+	Enemy::takeDamage(dmg - 3);
+	if (!(this->getHP()))
+		delete this;
 }
 
 SuperMutant&		SuperMutant::operator=(const SuperMutant& other) {

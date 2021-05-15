@@ -20,7 +20,7 @@ public:
 	std::string			getType() const;
 	int					getHP() const;
 
-	virtual void		takeDamage(int dmg) = 0;
+	virtual void		takeDamage(int dmg);
 
 };
 

@@ -7,6 +7,7 @@
 # include "PowerFist.hpp"
 # include "RadScorpion.hpp"
 # include "SuperMutant.hpp"
+# include "DoomFist.hpp"
 
 class Character {
 
@@ -31,7 +32,7 @@ public:
 	void				equip(const AWeapon* weapon);
 	void				attack(Enemy* enemy);
 	int					takeAP();
-	void				recoverAP(int ap);
+	void				recoverAP();
 
 };
 

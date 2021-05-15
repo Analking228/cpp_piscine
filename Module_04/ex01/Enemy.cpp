@@ -18,6 +18,14 @@ std::string			Enemy::getType() const{
 	return this->__Type;
 }
 
+void				Enemy::takeDamage(int dmg) {
+
+	if (this->__HP > 0)
+		this->__HP -= dmg;
+	if (this->__HP < 0)
+		this->__HP = 0;
+}
+
 Enemy&				Enemy::operator=(const Enemy& other) {
 
 	this->__HP = other.__HP;

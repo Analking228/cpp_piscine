@@ -12,10 +12,9 @@ RadScorpion::RadScorpion(const RadScorpion& other) : Enemy(other) {
 
 void				RadScorpion::takeDamage(int dmg) {
 
-	if (this->__HP > 0)
-		this->__HP -= dmg;
-	if (this->__HP < 0)
-		this->__HP = 0;
+	Enemy::takeDamage(dmg);
+	if (!(this->getHP()))
+		delete this;
 }
 
 RadScorpion&		RadScorpion::operator=(const RadScorpion& other) {

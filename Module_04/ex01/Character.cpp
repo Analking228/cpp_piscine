@@ -30,11 +30,17 @@ void						Character::equip(const AWeapon* weapon) {
 
 void						Character::attack(Enemy* enemy) {
 
+	if (!enemy || (enemy->getHP() == 0)){
+
+		std::cout << "Nothing to attack. There is no enemies left!" << std::endl;
+		return ;
+	}
 	if (this->takeAP()){
 
-		enemy->takeDamage(this->__Weapon->getDamage());
 		std::cout << this->getName() << " attacks " << enemy->getType()
 		<< " with a " << this->__Weapon->getName() << std::endl;
+		this->getWeapon()->attack();
+		enemy->takeDamage(this->__Weapon->getDamage());
 	}
 	else
 		std::cout << this->getName() << " just stands nearby " << enemy->getType()
@@ -50,11 +56,10 @@ int						Character::takeAP() {
 	return 0;
 }
 
-void					Character::recoverAP(int ap) {
+void					Character::recoverAP() {
 
-	this->__SumAP += ap;
-	std::cout << this->getName() << " recovers " << ap
-		<< " AP " << std::endl;
+	this->__SumAP += 10;
+	std::cout << this->getName() << " recovers 10 AP " << std::endl;
 }
 
 Character&				Character::operator=(const Character& other) {
