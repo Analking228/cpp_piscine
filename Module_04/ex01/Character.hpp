@@ -27,7 +27,7 @@ public:
 	Character&			operator=(const Character& other);
 
 	const std::string&	getName() const;
-	const int			getAP() const;
+	int			getAP() const;
 	const AWeapon*		getWeapon() const;
 	void				equip(const AWeapon* weapon);
 	void				attack(Enemy* enemy);

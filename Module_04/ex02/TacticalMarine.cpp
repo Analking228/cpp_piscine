@@ -5,7 +5,7 @@ TacticalMarine::TacticalMarine() {
 	std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
 
-TacticalMarine::TacticalMarine(const TacticalMarine& other) {
+TacticalMarine::TacticalMarine(const TacticalMarine& other) : ISpaceMarine(other) {
 
 	std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
@@ -32,6 +32,8 @@ void					TacticalMarine::meleeAttack() const{
 
 TacticalMarine&		TacticalMarine::operator=(const TacticalMarine& other) {
 
+	if (other.clone())
+		return *this;
 	return *this;
 }
 

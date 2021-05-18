@@ -4,25 +4,25 @@ AWeapon::AWeapon() {
 
 }
 
-AWeapon::AWeapon(const AWeapon& other) : __Name(other.__Name), __AP(other.__AP), __Dmg(other.__Dmg){
+AWeapon::AWeapon(const AWeapon& other) : __Name(other.__Name), __Dmg(other.__Dmg), __AP(other.__AP) {
 
 }
 
-AWeapon::AWeapon(const std::string& name, int apcost, int damage) : __Name(name), __AP(apcost), __Dmg(damage) {
+AWeapon::AWeapon(const std::string& name, int apcost, int damage) : __Name(name), __Dmg(damage),  __AP(apcost) {
 
 }
 
-const std::string		AWeapon::getName() const{
+const std::string&		AWeapon::getName() const{
 
 	return this->__Name;
 }
 
-const int				AWeapon::getDamage() const{
+int				AWeapon::getDamage() const{
 
 	return this->__Dmg;
 }
 
-const int				AWeapon::getAPCost() const{
+int				AWeapon::getAPCost() const{
 
 	return this->__AP;
 }

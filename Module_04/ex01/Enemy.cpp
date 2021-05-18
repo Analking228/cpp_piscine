@@ -1,10 +1,10 @@
 #include "Enemy.hpp"
 
-Enemy::Enemy(int hp, const std::string& type) : __HP(hp), __Type(type) {
+Enemy::Enemy(int hp, const std::string& type) : __Type(type), __HP(hp) {
 
 }
 
-Enemy::Enemy(const Enemy& other) : __HP(other.__HP), __Type(other.__Type){
+Enemy::Enemy(const Enemy& other) : __Type(other.__Type), __HP(other.__HP){
 
 }
 
@@ -28,8 +28,8 @@ void				Enemy::takeDamage(int dmg) {
 
 Enemy&				Enemy::operator=(const Enemy& other) {
 
-	this->__HP = other.__HP;
 	this->__Type = other.__Type;
+	this->__HP = other.__HP;
 	return *this;
 }
 

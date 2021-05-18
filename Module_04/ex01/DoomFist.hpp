@@ -6,7 +6,7 @@
 class DoomFist : public AWeapon {
 public:
 	DoomFist();
-	~DoomFist();
+	virtual ~DoomFist();
 
 	DoomFist(const DoomFist& other);
 

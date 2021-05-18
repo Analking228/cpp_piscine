@@ -39,7 +39,7 @@ int				Squad::push(ISpaceMarine* brother) {
 
         for (int i = 0; i < __Brothers; i++)
             newSquad[i] = __Squad[i];
-        newSquad[__Brothers] = new TacticalMarine(*brother);
+        newSquad[__Brothers] = brother;
         __Brothers++;
         delete [] __Squad;
         __Squad = newSquad;

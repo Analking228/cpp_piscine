@@ -5,7 +5,7 @@ AssaultTerminator::AssaultTerminator() {
 	std::cout << "* teleports from space *" << std::endl;
 }
 
-AssaultTerminator::AssaultTerminator(const AssaultTerminator& other) {
+AssaultTerminator::AssaultTerminator(const AssaultTerminator& other) : ISpaceMarine(other) {
 
 	std::cout << "* teleports from space *" << std::endl;
 }
@@ -32,6 +32,8 @@ void						AssaultTerminator::meleeAttack() const{
 
 AssaultTerminator&			AssaultTerminator::operator=(const AssaultTerminator& other) {
 
+	if (other.clone())
+		return *this;
 	return *this;
 }
 

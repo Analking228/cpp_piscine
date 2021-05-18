@@ -13,5 +13,9 @@ int	main() {
 
 	robert.polymorph(jim);
 	robert.polymorph(joe);
+
+	jim.getPolymorphed();
+	joe.getPolymorphed();
+
 	return 0; 
 }

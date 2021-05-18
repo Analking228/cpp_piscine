@@ -10,7 +10,7 @@ protected:
 	int					__HP;
 
 public:
-	~Enemy();
+	virtual ~Enemy();
 	
 	Enemy(int hp, const std::string& type);
 	Enemy(const Enemy& other);

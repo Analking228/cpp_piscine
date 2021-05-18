@@ -7,7 +7,7 @@ class RadScorpion : public Enemy{
 
 public:
 	RadScorpion();
-	~RadScorpion();
+	virtual ~RadScorpion();
 
 	RadScorpion(const RadScorpion& other);
 

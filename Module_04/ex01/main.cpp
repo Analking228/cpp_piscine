@@ -44,6 +44,9 @@ int main() {
 	me->attack(d);
 	me->attack(d);
 	me->attack(d);
+	me->equip(pf);
+	me->attack(d);
+	me->equip(df);
 	me->attack(d);
 	me->attack(d);
 	me->attack(d);

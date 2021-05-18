@@ -1,10 +1,10 @@
 #include "Victim.hpp"
 
-Victim::Victim(const std::string& name) : VictimClass(name) {
+Victim::Victim(const std::string& name) : AVictim(name) {
 
 }
 
-Victim::Victim(const Victim& other) : VictimClass(other) {
+Victim::Victim(const Victim& other) : AVictim(other) {
 
 }
 

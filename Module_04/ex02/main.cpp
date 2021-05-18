@@ -25,32 +25,10 @@ int main() {
 		cur->meleeAttack();
 	}
 
+	printf("unit = %p\n", vlc->getUnit(100));
+
 	std::cout << vlc->getCount() << std::endl;
-
-	Squad*		sq = new Squad;
 	
-	sq->push(bob);
-	sq->push(jim);
-	sq->push(alex);
-
 	delete vlc;
-	
-	for (int i = 0; i < sq->getCount(); ++i) {
-
-		ISpaceMarine* cur = sq->getUnit(i);
-		cur->battleCry();
-		cur->rangedAttack();
-		cur->meleeAttack();
-	}
-
-	Squad*		sq2 = new Squad;
-	std::cout << "here?" << std::endl;
-	*sq2 = *sq;
-
-	std::cout << sq->getCount() << std::endl;
-	std::cout << sq2->getCount() << std::endl;
-
-	delete sq;
-	delete sq2;
 	return 0;
 }

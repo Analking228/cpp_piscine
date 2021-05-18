@@ -13,7 +13,7 @@ const std::string&			Character::getName() const{
 	return this->__Name;
 }
 
-const int					Character::getAP() const{
+int					Character::getAP() const{
 
 	return this->__SumAP;
 }
@@ -60,6 +60,8 @@ void					Character::recoverAP() {
 
 	this->__SumAP += 10;
 	std::cout << this->getName() << " recovers 10 AP " << std::endl;
+	if (__SumAP > 40)
+		__SumAP = 40;
 }
 
 Character&				Character::operator=(const Character& other) {

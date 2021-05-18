@@ -1,15 +1,15 @@
 #ifndef VICTIM_HPP
 # define VICTIM_HPP
 
-# include "Victim.class.hpp"
+# include "AVictim.hpp"
 
-class Victim : protected VictimClass {
+class Victim : protected AVictim {
 
 private:
 	Victim();
 
 public:
-	~Victim();
+	virtual	~Victim();
 
 	Victim(const std::string& name);
 	Victim(const Victim& other);

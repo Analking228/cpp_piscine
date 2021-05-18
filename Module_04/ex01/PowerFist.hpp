@@ -6,7 +6,7 @@
 class PowerFist : public AWeapon {
 public:
 	PowerFist();
-	~PowerFist();
+	virtual ~PowerFist();
 
 	PowerFist(const PowerFist& other);
 
