@@ -8,6 +8,7 @@
 # include "RadScorpion.hpp"
 # include "SuperMutant.hpp"
 # include "DoomFist.hpp"
+# include "Radrakan.hpp"
 
 class Character {
 

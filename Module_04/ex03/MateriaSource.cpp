@@ -39,4 +39,9 @@ MateriaSource&		MateriaSource::operator=(const MateriaSource& other) {
 	return *this;
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+
+	for (int i = 0; i < 4; i++)
+		if (_Inv[i] != nullptr)
+			delete _Inv[i];
+}

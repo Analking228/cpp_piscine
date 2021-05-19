@@ -49,6 +49,7 @@ Character&				Character::operator=(const Character& other) {
 				delete _Inv[i];
 			_Inv[i] = other._Inv[i]->clone();
 		}
+	return *this;
 }
 
 Character::~Character() {

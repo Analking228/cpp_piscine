@@ -8,6 +8,7 @@ int main() {
 
 	Enemy*		b = new RadScorpion();
 	Enemy*		d = new SuperMutant();
+	Enemy*		c = new Radrakan();
 
 	AWeapon*	pr = new PlasmaRifle();
 	AWeapon*	pf = new PowerFist();
@@ -51,6 +52,9 @@ int main() {
 	me->attack(d);
 	me->attack(d);
 	me->attack(d);
+	me->attack(c);
+	me->attack(c);
+	me->attack(c);
 	
 	delete pr;
 	delete pf;
