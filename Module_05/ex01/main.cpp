@@ -2,26 +2,32 @@
 #include "Form.hpp"
 
 int main() {
-	Bureaucrat mike("Mike", 100);
-	std::cout << mike << std::endl;
-	Form lu17("lu17", 100, 10);
-	std::cout << lu17 << std::endl;
 
-	std::cout << "TEST 1" << std::endl;
+	Bureaucrat mike("Mike", 100);
+	std::cout << mike << "\n";
+	Bureaucrat jim("Jim", 150);
+	std::cout << mike << "\n";
+	
+	Form e314("e314", 100, 50);
+	std::cout << e314 << "\n";
+	Form e444("e444", 100, 50);
+	std::cout << e444 << "\n";
+
+	std::cout << "TEST 1" << "\n";
 	try {
-		Form lu18("lu18", 180, 10);
-		std::cout << lu18 << std::endl;
+		Form e555("e555", 180, 10);
+		std::cout << e555 << "\n";
 	}
 	catch(const std::exception& e) {
-		std::cerr << e.what() << std::endl;
+		std::cerr << e.what() << "\n";
 	}
 
-	std::cout << "TEST 2" << std::endl;
+	std::cout << "TEST 2" << "\n";
 	try {
-		mike.signForm(lu17);
-		std::cout << lu17 << std::endl;
-		mike.signForm(lu17);
-		std::cout << lu17 << std::endl;
+		mike.signForm(e314);
+		std::cout << e314 << "\n";
+		jim.signForm(e444);
+		std::cout << e444 << "\n";
 	}
 	catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;

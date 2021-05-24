@@ -32,12 +32,16 @@ void					Bureaucrat::downGrade() {
 }
 
 void					Bureaucrat::signForm(Form& point) {
-	point.beSigned(_Grade);
+	point.beSigned(*this);
 	if (point.isSigned())
 		std::cout << _Name << " signs " << point.getName() << std::endl;
 	else {
 		std::cout << _Name << " cannot sign " << point.getName() << " beacuse grade is too low" << std::endl;
 	}
+}
+
+void					Bureaucrat::executeForm(Form& point){
+	point.execute(*this);
 }
 
 const char*				Bureaucrat::GradeTooHighExсeption::what() const throw(){

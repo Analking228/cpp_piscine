@@ -4,6 +4,10 @@
 # include <iostream>
 # include <string>
 
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
+
 class Form {
 
 private:
@@ -22,10 +26,12 @@ public:
 
 	const std::string&		getName() const;
 	int						getToSign() const;
+	int						getToExec() const;
 	void					upGrade();
 	void					downGrade();
-	void					beSigned(const int grade);
+	void					beSigned(const Bureaucrat&);
 	int						isSigned() const;
+	virtual void			execute(const Bureaucrat&) = 0;
 
 	class GradeTooHighException: public std::exception {
 		virtual const char*	what() const throw();
@@ -33,7 +39,9 @@ public:
 	class GradeTooLowException: public std::exception {
 		virtual const char*	what() const throw();
 	};
-
+	class IsNotSignedException: public std::exception {
+		virtual const char* what() const throw();
+	};
 };
 
 std::ostream&				operator<<(std::ostream& out, const Form& point);

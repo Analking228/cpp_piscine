@@ -20,6 +20,10 @@ int						Form::getToSign() const{
 	return _toSign;
 }
 
+int						Form::getToExec() const{
+	return _toExec;
+}
+
 void					Form::upGrade() {
 	_toSign++;
 }
@@ -28,8 +32,8 @@ void					Form::downGrade() {
 	_toExec--;
 }
 
-void					Form::beSigned(const int grade) {
-	if (grade <= _toSign)
+void					Form::beSigned(const Bureaucrat& point) {
+	if (point.getGrade() <= _toSign)
 		_isSign = 1;
 }
 
@@ -45,6 +49,9 @@ const char*				Form::GradeTooLowException::what() const throw(){
 	return "Error: Grade is too low";
 }
 
+const char*				Form::IsNotSignedException::what() const throw(){
+	return "Error: Form hasn't been signed yet";
+}
 
 Form&					Form::operator=(const Form& other) {
 	
@@ -53,7 +60,7 @@ Form&					Form::operator=(const Form& other) {
 }
 
 std::ostream&			operator<<(std::ostream& out, const Form& point) {
-	out << "Form: " << point.getName() << " with required grade:" << point.getToSign();
+	out << "Form: " << point.getName() << ", with required grade: " << point.getToSign();
 	return out;
 }
 
