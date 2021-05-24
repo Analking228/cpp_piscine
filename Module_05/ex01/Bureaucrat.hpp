@@ -4,6 +4,8 @@
 # include <string>
 # include <iostream>
 
+# include "Form.hpp"
+
 class Bureaucrat {
 private:
 	Bureaucrat();
@@ -22,6 +24,7 @@ public:
 	int						getGrade() const;
 	void					upGrade();
 	void					downGrade();
+	void					signForm(Form& point);
 	
 	class GradeTooHighExсeption: public std::exception {
 		virtual const char*	what() const throw();

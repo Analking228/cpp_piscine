@@ -9,8 +9,8 @@ class Form {
 private:
 	const std::string		_Name;
 	bool					_isSign;
-	const int				_toSign;
-	const int				_toExec;
+	int						_toSign;
+	int						_toExec;
 
 public:
 	Form(const std::string& name, const int toSign, const int toExec);
@@ -21,9 +21,11 @@ public:
 	Form&					operator=(const Form& other);
 
 	const std::string&		getName() const;
-	const int				getGrade() const;
+	const int				getToSign() const;
 	void					upGrade();
 	void					downGrade();
+	void					beSigned(const int grade);
+	const int				isSigned() const;
 
 	class GradeTooHighException: public std::exception {
 		virtual const char*	what() const throw();
