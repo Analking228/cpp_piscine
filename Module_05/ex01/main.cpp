@@ -13,7 +13,7 @@ int main() {
 	Form e444("e444", 100, 50);
 	std::cout << e444 << "\n";
 
-	std::cout << "TEST 1" << "\n";
+	std::cout << "\n" << "TEST 1" << "\n";
 	try {
 		Form e555("e555", 180, 10);
 		std::cout << e555 << "\n";
@@ -22,7 +22,7 @@ int main() {
 		std::cerr << e.what() << "\n";
 	}
 
-	std::cout << "TEST 2" << "\n";
+	std::cout << "\n" << "TEST 2" << "\n";
 	try {
 		mike.signForm(e314);
 		std::cout << e314 << "\n";

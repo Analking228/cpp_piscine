@@ -12,9 +12,13 @@ public:
 	~Intern();
 
 	Intern(const Intern&);
-	Intern&		operator=(const Intern&);
+	Intern&					operator=(const Intern&);
 
-	Form*		makeForm(const std::string& name, const std::string target);
+	Form*					makeForm(const std::string& form, const std::string target);
+
+	class FormNotFoundException : public std::exception {
+		virtual const char*	what() const throw();
+	};
 };
 
 

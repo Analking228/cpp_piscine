@@ -18,10 +18,10 @@ int main() {
     try {
         Form* lu18;
         Intern intern;
-        lu18 = intern.makeForm("Presidential Pardon", "lu18");
+        lu18 = intern.makeForm("presidential pardon", "lu18");
         std::cout << *lu18 << std::endl;
-        lu18->execute(mikky);
-        lu18->execute(mike);
+        mikky.executeForm(*lu18);
+        mike.executeForm(*lu18);
     } catch(const std::exception& e) {
         std::cerr << e.what() << std::endl;
     }

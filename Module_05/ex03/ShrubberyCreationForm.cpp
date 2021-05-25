@@ -9,12 +9,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 }
 
-const char*     ShrubberyCreationForm::OpenFileException::what() const throw() {
-	return "File opening failed!";
+const char*		ShrubberyCreationForm::OpenFileException::what() const throw() {
+	return "Error: open file!";
 }
 
-const char*     ShrubberyCreationForm::WriteFileException::what() const throw() {
-	return "Writing to file failed!";
+const char*		ShrubberyCreationForm::WriteFileException::what() const throw() {
+	return "Error: write file!";
 }
 
 void            ShrubberyCreationForm::execute(const Bureaucrat& point) {

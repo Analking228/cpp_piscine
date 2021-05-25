@@ -19,9 +19,9 @@ void							RobotomyRequestForm::execute(const Bureaucrat& point) {
 		throw Form::GradeTooLowException();
 	if (std::rand() % 2 == 1)
 		std::cout << "Makes some drilling noises, and tell us that " << getTraget() <<
-		" has been robotomized successfully 50% of the time." << std::endl;
+		" has been robotomized successfully 50% of the time.  ((((x-x))))" << std::endl;
 	else
-		std::cout << "Robotomy has failed ((((x-x))))" << std::endl;
+		std::cout << "Robotomy has failed ((((T.T))))" << std::endl;
 }
 
 

@@ -1,7 +1,7 @@
 #include "Bureaucrat.hpp"
 
 int main() {
-    std::cout << "TEST 1" << std::endl;
+    std::cout << "\n" << "TEST 1" << "\n";
     try {
 	    Bureaucrat jim("Jimmy", 2);
         std::cout << jim << std::endl;
@@ -11,7 +11,7 @@ int main() {
         std::cerr << e.what() << '\n';
     }
 
-    std::cout << "TEST 2" << std::endl;
+    std::cout << "\n" << "TEST 2" << "\n";
     try {
         Bureaucrat mike("Mike", 1);
         Bureaucrat liam("Liam", 40);
@@ -24,7 +24,7 @@ int main() {
         std::cerr << e.what() << '\n';
     }
 
-    std::cout << "TEST 3" << std::endl;
+    std::cout << "\n" << "TEST 3" << "\n";
     try {
         Bureaucrat mike("Mike", 1000);
         std::cout << mike << std::endl;
