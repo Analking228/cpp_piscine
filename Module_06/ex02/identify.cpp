@@ -26,32 +26,25 @@ Base*	generate(void) {
 	return _Methods[i]();
 }
 
-void	identify_pointer(Base* p) {
+void	identify_from_pointer(Base* p) {
 
-	A* baseA = dynamic_cast<A*>(p);
-	B* baseB = dynamic_cast<B*>(p);
-	C* baseC = dynamic_cast<C*>(p);
-
-	if(!baseA && !baseB)
-		std::cout << "Type C" << std::endl;
-	if(!baseA && !baseC)
-		std::cout << "Type B" << std::endl;
-	if(!baseC && !baseB)
-		std::cout << "Type A" << std::endl;
+	if (dynamic_cast<A*>(p))
+		std::cout << "Base: A" << std::endl;
+	else if (dynamic_cast<B*>(p))
+		std::cout << "Base: B" << std::endl;
+	else if (dynamic_cast<C*>(p))
+		std::cout << "Base: C" << std::endl;
 }
 
-void	identify_reference(Base& p) {
+void	identify_from_reference(Base& p) {
 
-	A* baseA = dynamic_cast<A*>(&p);
-	B* baseB = dynamic_cast<B*>(&p);
-	C* baseC = dynamic_cast<C*>(&p);
-
-	if(!baseA && !baseB)
-		std::cout << "Type C" << std::endl;
-	if(!baseA && !baseC)
-		std::cout << "Type B" << std::endl;
-	if(!baseC && !baseB)
-		std::cout << "Type A" << std::endl;
+	if (dynamic_cast<A*>(&p))
+		std::cout << "Base: A" << std::endl;
+	else if (dynamic_cast<B*>(&p))
+		std::cout << "Base: B" << std::endl;
+	else if (dynamic_cast<C*>(&p))
+		std::cout << "Base: C" << std::endl;
+	
 }
 
 int		main() {
@@ -61,7 +54,7 @@ int		main() {
 	Base*	base;
 
 	base = generate();
-	identify_pointer(base);
-	identify_reference(*base);
+	identify_from_pointer(base);
+	identify_from_reference(*base);
 	return 0;
 }
